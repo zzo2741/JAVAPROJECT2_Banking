@@ -5,7 +5,7 @@ import java.util.Scanner;
 import project2.ver01.Account;
 import project2.ver01.MenuChoice;
 
-public class BankingSystemVer01 implements MenuChoice
+public class BankingSystemVer02 implements MenuChoice
 {
 	static Account[] account = new Account[50];
 	static int numOfAccount = 0;
