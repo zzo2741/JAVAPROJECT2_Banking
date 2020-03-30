@@ -19,6 +19,7 @@ class Puzzle
 
 		int index = list.indexOf("9");
 		list.set(index, "x");
+		System.out.println("섞기 전");
 		puzzleShow(list);
 		return list;
 	}
@@ -29,9 +30,10 @@ class Puzzle
 		ArrayList<String> puzzleList = createPuzzle();
 		while (count <= 3)
 		{
-			Collections.swap(puzzleList, (int) ((Math.random() * 8)), (int) ((Math.random() * 8)));
+			
 			count++;
 		}
+		System.out.println("섞기 후");
 		puzzleShow(puzzleList);
 		return puzzleList;
 	}
@@ -67,7 +69,7 @@ class Puzzle
 		System.out.println("메뉴를 선택해주세요.");
 		System.out.println("1. 퍼즐 섞기");
 		System.out.println("2. 퍼즐 시작");
-		System.out.println("2. 게임 종료");
+		System.out.println("3. 게임 종료");
 		System.out.print("선택 : ");
 	}
 

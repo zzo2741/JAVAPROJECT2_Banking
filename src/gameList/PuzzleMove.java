@@ -21,178 +21,82 @@ public class PuzzleMove
 			if (key.equals("x"))
 			{
 				break;
-			} else if (index == 0)
+			} else if (key.equals("w"))
 			{
-				if ("a".equalsIgnoreCase(key))
+				switch (index)
 				{
-					Collections.swap(puzzleList, 0, 1);
+				case 0:
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+					Collections.swap(puzzleList, index, index + 3);
+					break;
+				case 6:
+				case 7:
+				case 8:
+					noMove();
+					break;
 
-				} else if ("w".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 0, 3);
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				}
-			} else if (index == 1)
+			} else if (key.equals("s"))
 			{
-				if ("w".equalsIgnoreCase(key))
+				switch (index)
 				{
-					Collections.swap(puzzleList, 1, 4);
+				case 0:
+				case 1:
+				case 2:
+					noMove();
+					break;
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+					Collections.swap(puzzleList, index, index - 3);
+					break;
 
-				} else if ("a".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 1, 2);
-
-				} else if ("d".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 1, 0);
-
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 				}
-			} else if (index == 2)
+			} else if (key.equals("a"))
 			{
-
-				if ("w".equalsIgnoreCase(key))
+				switch (index)
 				{
-					Collections.swap(puzzleList, 2, 5);
-
-				} else if ("d".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 2, 1);
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				case 0:
+				case 1:
+				case 3:
+				case 4:
+				case 6:
+				case 7:
+					Collections.swap(puzzleList, index, index + 1);
+					break;
+				case 2:
+				case 5:
+				case 8:
+					noMove();
+					break;
 				}
-			} else if (index == 3)
+
+			} else if (key.equals("d"))
 			{
-
-				if ("w".equalsIgnoreCase(key))
+				switch (index)
 				{
-					Collections.swap(puzzleList, 3, 6);
-
-				} else if ("a".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 3, 4);
-
-				} else if ("s".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 3, 0);
-
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+				case 0:
+				case 3:
+				case 6:
+					noMove();
+					break;
+				case 1:
+				case 2:
+				case 4:
+				case 5:
+				case 7:
+				case 8:
+					Collections.swap(puzzleList, index, index - 1);
+					break;
 				}
-			} else if (index == 4)
-			{
 
-				if ("w".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 4, 7);
-
-				} else if ("a".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 4, 5);
-
-				} else if ("s".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 4, 1);
-
-				} else if ("d".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 4, 3);
-
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				}
-			} else if (index == 5)
-			{
-
-				if ("w".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 5, 8);
-
-				} else if ("d".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 5, 4);
-
-				} else if ("s".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 5, 2);
-
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				}
-			} else if (index == 6)
-			{
-
-				if ("a".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 6, 7);
-
-				} else if ("s".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 6, 3);
-
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				}
-			} else if (index == 7)
-			{
-
-				if ("a".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 7, 8);
-
-				} else if ("s".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 7, 4);
-
-				} else if ("d".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 7, 6);
-
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				}
-			} else if (index == 8)
-			{
-
-				if ("s".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 8, 5);
-
-				} else if ("d".equalsIgnoreCase(key))
-				{
-					Collections.swap(puzzleList, 8, 7);
-				} else
-				{
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
-					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-				}
 			}
 			puzzle.puzzleShow(puzzleList);
 			if (puzzleCheak(puzzleList) == true)
@@ -202,6 +106,13 @@ public class PuzzleMove
 
 		}
 
+	}
+
+	public void noMove()
+	{
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+		System.out.println("xxxxxxxxxxxx이동불가xxxxxxxxxxxx");
+		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 	}
 
 	public Boolean puzzleCheak(ArrayList<String> list)
