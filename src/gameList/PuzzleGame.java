@@ -8,44 +8,63 @@ import java.util.Scanner;
 
 class Puzzle
 {
+	public final int SHUFFLE_COUNT = 10;
+	PuzzleMove pm = new PuzzleMove();
+
 	public ArrayList<String> createPuzzle()
 	{
-
 		ArrayList<String> list = new ArrayList<>();
 		for (int i = 1; list.size() < 9; i++)
 		{
 			list.add(Integer.toString(i));
 		}
-
 		int index = list.indexOf("9");
 		list.set(index, "x");
-		System.out.println("섞기 전");
+		System.out.println("\n섞기 전");
 		puzzleShow(list);
+		System.out.println("");
 		return list;
 	}
 
 	public ArrayList<String> shuffle()
 	{
-		int count = 1;
+		int count = 1, idx;
 		ArrayList<String> puzzleList = createPuzzle();
-		while (count <= 3)
+		String key = null;
+		while (count <= SHUFFLE_COUNT)
 		{
-			
+			int random = (int) (Math.random() * 4 + 1);
+			switch (random)
+			{
+			case 1:
+				key = "w";
+				break;
+			case 2:
+				key = "a";
+				break;
+			case 3:
+				key = "s";
+				break;
+			case 4:
+				key = "d";
+				break;
+			}
+			idx = puzzleList.indexOf("x");
+			puzzleList = pm.suflMove(puzzleList, key, idx);
 			count++;
 		}
-		System.out.println("섞기 후");
+		System.out.println("섞기 후\t" + "[섞은 횟수 : " + SHUFFLE_COUNT + "]");
 		puzzleShow(puzzleList);
+		System.out.println("");
 		return puzzleList;
 	}
 
 	public void gameStart(ArrayList<String> list)
 	{
-		PuzzleMove pm = new PuzzleMove();
 		System.out.println();
-		System.out.println("게임스타트 메소드 안");
+		System.out.println("게임 시작 후 퍼즐 모양");
 		puzzleShow(list);
 		pm.puzzleMove(list);
-
 	}
 
 	public void puzzleShow(ArrayList<String> list)
@@ -73,6 +92,12 @@ class Puzzle
 		System.out.print("선택 : ");
 	}
 
+	public void endGame()
+	{
+		System.out.println("게임을 종료합니다.");
+		System.exit(0);
+	}
+
 }
 
 public class PuzzleGame
@@ -80,27 +105,33 @@ public class PuzzleGame
 
 	public static void main(String[] args)
 	{
-		Scanner scanner = new Scanner(System.in);
 		Puzzle puzzle = new Puzzle();
 		ArrayList<String> list = null;
+		int selNum = 0;
 		while (true)
 		{
-
 			puzzle.showMenu();
-			int selNum = scanner.nextInt();
-			switch (selNum)
+			try
 			{
-			case 1:
-				list = puzzle.shuffle();
-				break;
-			case 2:
-				puzzle.gameStart(list);
-				break;
-			case 3:
-				System.out.println("게임을 종료합니다.");
-				System.exit(0);
-				break;
+				Scanner scanner = new Scanner(System.in);
+				selNum = scanner.nextInt();
+				switch (selNum)
+				{
+				case 1:
+					list = puzzle.shuffle();
+					break;
+				case 2:
+					puzzle.gameStart(list);
+					break;
+				case 3:
+					puzzle.endGame();
+					break;
+				}
+			} catch (Exception e)
+			{
+				System.out.println("숫자를 입력해주세요.\n");
 			}
+
 		}
 	}
 
