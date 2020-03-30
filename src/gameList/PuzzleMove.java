@@ -1,6 +1,7 @@
 package gameList;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class PuzzleMove
@@ -17,17 +18,18 @@ public class PuzzleMove
 			System.out.println("[ 종료 ] x : Exit");
 			System.out.print("키를 입력해주세요 : ");
 			String key = sc.next();
-			if (index == 0)
+			if (key.equals("x"))
+			{
+				break;
+			} else if (index == 0)
 			{
 				if ("a".equalsIgnoreCase(key))
 				{
-					puzzleList.set(0, puzzleList.get(1));
-					puzzleList.set(1, "x");
+					Collections.swap(puzzleList, 0, 1);
 
 				} else if ("w".equalsIgnoreCase(key))
 				{
-					puzzleList.set(0, puzzleList.get(3));
-					puzzleList.set(3, "x");
+					Collections.swap(puzzleList, 0, 3);
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -38,16 +40,16 @@ public class PuzzleMove
 			{
 				if ("w".equalsIgnoreCase(key))
 				{
-					puzzleList.set(1, puzzleList.get(4));
-					puzzleList.set(4, "x");
+					Collections.swap(puzzleList, 1, 4);
+
 				} else if ("a".equalsIgnoreCase(key))
 				{
-					puzzleList.set(1, puzzleList.get(2));
-					puzzleList.set(2, "x");
+					Collections.swap(puzzleList, 1, 2);
+
 				} else if ("d".equalsIgnoreCase(key))
 				{
-					puzzleList.set(1, puzzleList.get(0));
-					puzzleList.set(0, "x");
+					Collections.swap(puzzleList, 1, 0);
+
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -59,13 +61,11 @@ public class PuzzleMove
 
 				if ("w".equalsIgnoreCase(key))
 				{
-					puzzleList.set(2, puzzleList.get(5));
-					puzzleList.set(5, "x");
+					Collections.swap(puzzleList, 2, 5);
 
 				} else if ("d".equalsIgnoreCase(key))
 				{
-					puzzleList.set(2, puzzleList.get(1));
-					puzzleList.set(1, "x");
+					Collections.swap(puzzleList, 2, 1);
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -77,16 +77,16 @@ public class PuzzleMove
 
 				if ("w".equalsIgnoreCase(key))
 				{
-					puzzleList.set(3, puzzleList.get(6));
-					puzzleList.set(6, "x");
+					Collections.swap(puzzleList, 3, 6);
+
 				} else if ("a".equalsIgnoreCase(key))
 				{
-					puzzleList.set(3, puzzleList.get(4));
-					puzzleList.set(4, "x");
+					Collections.swap(puzzleList, 3, 4);
+
 				} else if ("s".equalsIgnoreCase(key))
 				{
-					puzzleList.set(3, puzzleList.get(0));
-					puzzleList.set(0, "x");
+					Collections.swap(puzzleList, 3, 0);
+
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -98,20 +98,20 @@ public class PuzzleMove
 
 				if ("w".equalsIgnoreCase(key))
 				{
-					puzzleList.set(4, puzzleList.get(7));
-					puzzleList.set(7, "x");
+					Collections.swap(puzzleList, 4, 7);
+
 				} else if ("a".equalsIgnoreCase(key))
 				{
-					puzzleList.set(4, puzzleList.get(5));
-					puzzleList.set(5, "x");
+					Collections.swap(puzzleList, 4, 5);
+
 				} else if ("s".equalsIgnoreCase(key))
 				{
-					puzzleList.set(4, puzzleList.get(1));
-					puzzleList.set(1, "x");
+					Collections.swap(puzzleList, 4, 1);
+
 				} else if ("d".equalsIgnoreCase(key))
 				{
-					puzzleList.set(4, puzzleList.get(3));
-					puzzleList.set(3, "x");
+					Collections.swap(puzzleList, 4, 3);
+
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -123,16 +123,16 @@ public class PuzzleMove
 
 				if ("w".equalsIgnoreCase(key))
 				{
-					puzzleList.set(5, puzzleList.get(8));
-					puzzleList.set(8, "x");
+					Collections.swap(puzzleList, 5, 8);
+
 				} else if ("d".equalsIgnoreCase(key))
 				{
-					puzzleList.set(5, puzzleList.get(4));
-					puzzleList.set(4, "x");
+					Collections.swap(puzzleList, 5, 4);
+
 				} else if ("s".equalsIgnoreCase(key))
 				{
-					puzzleList.set(5, puzzleList.get(2));
-					puzzleList.set(2, "x");
+					Collections.swap(puzzleList, 5, 2);
+
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -144,12 +144,12 @@ public class PuzzleMove
 
 				if ("a".equalsIgnoreCase(key))
 				{
-					puzzleList.set(6, puzzleList.get(7));
-					puzzleList.set(7, "x");
+					Collections.swap(puzzleList, 6, 7);
+
 				} else if ("s".equalsIgnoreCase(key))
 				{
-					puzzleList.set(6, puzzleList.get(3));
-					puzzleList.set(3, "x");
+					Collections.swap(puzzleList, 6, 3);
+
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -161,16 +161,16 @@ public class PuzzleMove
 
 				if ("a".equalsIgnoreCase(key))
 				{
-					puzzleList.set(7, puzzleList.get(8));
-					puzzleList.set(8, "x");
+					Collections.swap(puzzleList, 7, 8);
+
 				} else if ("s".equalsIgnoreCase(key))
 				{
-					puzzleList.set(7, puzzleList.get(4));
-					puzzleList.set(4, "x");
+					Collections.swap(puzzleList, 7, 4);
+
 				} else if ("d".equalsIgnoreCase(key))
 				{
-					puzzleList.set(7, puzzleList.get(6));
-					puzzleList.set(6, "x");
+					Collections.swap(puzzleList, 7, 6);
+
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -182,12 +182,11 @@ public class PuzzleMove
 
 				if ("s".equalsIgnoreCase(key))
 				{
-					puzzleList.set(8, puzzleList.get(5));
-					puzzleList.set(5, "x");
+					Collections.swap(puzzleList, 8, 5);
+
 				} else if ("d".equalsIgnoreCase(key))
 				{
-					puzzleList.set(8, puzzleList.get(7));
-					puzzleList.set(7, "x");
+					Collections.swap(puzzleList, 8, 7);
 				} else
 				{
 					System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxx");
@@ -200,10 +199,7 @@ public class PuzzleMove
 			{
 				break;
 			}
-			if (key.equals("x"))
-			{
-				break;
-			}
+
 		}
 
 	}
