@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 class Puzzle
 {
-	public ArrayList<String> shuffle()
+	public ArrayList<String> createPuzzle()
 	{
 
 		ArrayList<String> list = new ArrayList<>();
@@ -16,12 +16,24 @@ class Puzzle
 		{
 			list.add(Integer.toString(i));
 		}
-		Collections.shuffle(list);
 
 		int index = list.indexOf("9");
 		list.set(index, "x");
 		puzzleShow(list);
 		return list;
+	}
+
+	public ArrayList<String> shuffle()
+	{
+		int count = 1;
+		ArrayList<String> puzzleList = createPuzzle();
+		while (count <= 3)
+		{
+			Collections.swap(puzzleList, (int) ((Math.random() * 8)), (int) ((Math.random() * 8)));
+			count++;
+		}
+		puzzleShow(puzzleList);
+		return puzzleList;
 	}
 
 	public void gameStart(ArrayList<String> list)
@@ -67,7 +79,6 @@ public class PuzzleGame
 	public static void main(String[] args)
 	{
 		Scanner scanner = new Scanner(System.in);
-
 		Puzzle puzzle = new Puzzle();
 		ArrayList<String> list = null;
 		while (true)

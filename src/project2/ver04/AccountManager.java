@@ -277,7 +277,7 @@ public class AccountManager implements CustomSpecialRate
 		{
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(PROJECT_ADDRESS));
 			out.writeObject(accSet);
-
+			System.out.println("객체 저장 성공");
 		} catch (Exception e)
 		{
 			System.out.println("객체 저장 실패");
@@ -304,7 +304,6 @@ public class AccountManager implements CustomSpecialRate
 		} catch (Exception e)
 		{
 			System.out.println("객체 불러오기 실패");
-			e.printStackTrace();
 		}
 	}
 

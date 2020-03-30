@@ -29,7 +29,7 @@ public class BankingSystemVer05 implements MenuChoice
 			con = DriverManager.getConnection(ORALE_URL, user, pass);
 
 			stmt = con.createStatement();
-			String creatTableSql = "CREATE TABLE banking_tb (" + "accountnumber VARCHAR2(50), " + "name VARCHAR2(50), " + "balance NUMBER, "
+			String creatTableSql = "CREATE TABLE banking_tb (" + " idx number, accountnumber VARCHAR2(50), " + "name VARCHAR2(50), " + "balance NUMBER, "
 					+ "PRIMARY KEY (accountnumber))";
 			stmt.execute(creatTableSql);
 			System.out.println("테이블을 생성하였습니다.");
@@ -135,7 +135,7 @@ public class BankingSystemVer05 implements MenuChoice
 		balance = scanner.nextInt();
 		try
 		{
-			String insertQuery = "INSERT INTO banking_tb VALUES (?, ?, ?)";
+			String insertQuery = "INSERT INTO banking_tb VALUES (seq_banking.NEXTVAL, ?, ?, ?)";
 			psmt = con.prepareStatement(insertQuery);
 			psmt.setString(1, accountNumber);
 			psmt.setString(2, name);
