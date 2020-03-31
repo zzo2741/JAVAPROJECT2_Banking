@@ -1,4 +1,4 @@
-package gameList;
+package puzzlegame;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +9,7 @@ public class PuzzleMove
 	public void puzzleMove(ArrayList<String> list)
 	{
 		ArrayList<String> puzzleList = list;
-		Puzzle puzzle = new Puzzle();
+		PuzzleGame puzzle = new PuzzleGame();
 		Scanner sc = new Scanner(System.in);
 		int index = 0;
 		while (true)

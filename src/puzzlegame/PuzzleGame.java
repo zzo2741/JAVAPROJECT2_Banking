@@ -1,4 +1,4 @@
-package gameList;
+package puzzlegame;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
-class Puzzle
+public class PuzzleGame
 {
-	public final int SHUFFLE_COUNT = 10;
+	public final int SHUFFLE_COUNT = 100;
 	PuzzleMove pm = new PuzzleMove();
 
 	public ArrayList<String> createPuzzle()
@@ -95,22 +95,15 @@ class Puzzle
 	public void endGame()
 	{
 		System.out.println("게임을 종료합니다.");
-		System.exit(0);
 	}
 
-}
-
-public class PuzzleGame
-{
-
-	public static void main(String[] args)
+	public void gameStart()
 	{
-		Puzzle puzzle = new Puzzle();
 		ArrayList<String> list = null;
 		int selNum = 0;
 		while (true)
 		{
-			puzzle.showMenu();
+			showMenu();
 			try
 			{
 				Scanner scanner = new Scanner(System.in);
@@ -118,14 +111,14 @@ public class PuzzleGame
 				switch (selNum)
 				{
 				case 1:
-					list = puzzle.shuffle();
+					list = shuffle();
 					break;
 				case 2:
-					puzzle.gameStart(list);
+					gameStart(list);
 					break;
 				case 3:
-					puzzle.endGame();
-					break;
+					endGame();
+					return;
 				}
 			} catch (Exception e)
 			{

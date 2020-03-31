@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 import project2.ver05.MenuChoice;
+import puzzlegame.PuzzleGame;
 
 public class BankingSystemVer05 implements MenuChoice
 {
@@ -29,8 +30,8 @@ public class BankingSystemVer05 implements MenuChoice
 			con = DriverManager.getConnection(ORALE_URL, user, pass);
 
 			stmt = con.createStatement();
-			String creatTableSql = "CREATE TABLE banking_tb (" + " idx number, accountnumber VARCHAR2(50), " + "name VARCHAR2(50), " + "balance NUMBER, "
-					+ "PRIMARY KEY (accountnumber))";
+			String creatTableSql = "CREATE TABLE banking_tb (" + " idx number, accountnumber VARCHAR2(50), " + "name VARCHAR2(50), "
+					+ "balance NUMBER, " + "PRIMARY KEY (accountnumber))";
 			stmt.execute(creatTableSql);
 			System.out.println("테이블을 생성하였습니다.");
 		} catch (Exception e)
@@ -40,7 +41,7 @@ public class BankingSystemVer05 implements MenuChoice
 		try
 		{
 			stmt = con.createStatement();
-			String createSeqSql = "CREATE SEQUENCE seq_banking NOCYCLE NOCACHE";
+			String createSeqSql = "CREATE SEQUENCE seq_banking increment by 1  start with 1 nomaxvalue minvalue 1 NOCYCLE NOCACHE";
 			stmt.execute(createSeqSql);
 			System.out.println("시퀀스를 생성하였습니다.");
 		} catch (Exception e)
@@ -60,7 +61,8 @@ public class BankingSystemVer05 implements MenuChoice
 		System.out.println("2. 입    금");
 		System.out.println("3. 출    금");
 		System.out.println("4. 계좌정보출력");
-		System.out.println("5. 프로그램종료");
+		System.out.println("5. 3by3 퍼즐게임");
+		System.out.println("6. 프로그램종료");
 		System.out.print("선택 : ");
 	}
 
@@ -167,8 +169,9 @@ public class BankingSystemVer05 implements MenuChoice
 				String accountnumber = rs.getString("accountnumber");
 				String name = rs.getString("name");
 				int balance = rs.getInt("balance");
+				int idx = rs.getInt("idx");
 
-				System.out.printf("계좌번호 : %-10s 이름 : %-10s 금액 : %-10s\n", accountnumber, name, balance);
+				System.out.printf("번호 : %-5s 계좌번호 : %-10s 이름 : %-10s 금액 : %-10s\n", idx, accountnumber, name, balance);
 
 			}
 			System.out.println("------------------");
@@ -180,6 +183,7 @@ public class BankingSystemVer05 implements MenuChoice
 		} finally
 		{
 			close();
+			
 		}
 
 	}
@@ -249,6 +253,11 @@ public class BankingSystemVer05 implements MenuChoice
 
 			case INQUIRE:
 				showAccInfo();
+				break;
+
+			case PUZZLE_GAME:
+				PuzzleGame pg = new PuzzleGame();
+				pg.gameStart();
 				break;
 
 			case EXIT:
