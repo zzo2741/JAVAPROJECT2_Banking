@@ -27,7 +27,22 @@ public class PuzzleMove
 			}
 			if (puzzleCheak(puzzleList) == true)
 			{
-				break;
+				System.out.println("게임을 재시작하시겠습니까?");
+				System.out.println("1. 재시작 2. 종료");
+				System.out.print("선택 : ");
+				int answerNum = sc.nextInt();
+				if (answerNum == 1)
+				{
+					System.out.println("게임을 재시작합니다.");
+					puzzle.gameStart(puzzle.shuffle());
+					continue;
+
+				} else if (answerNum == 2)
+				{
+					System.out.println("게임을 종료합니다.");
+					return;
+
+				}
 			}
 
 		}

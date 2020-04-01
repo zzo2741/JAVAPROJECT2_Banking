@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class PuzzleGame
 {
-	public final int SHUFFLE_COUNT = 100;
+	public final int SHUFFLE_COUNT = 5;
 	PuzzleMove pm = new PuzzleMove();
 
 	public ArrayList<String> createPuzzle()
