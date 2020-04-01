@@ -183,7 +183,7 @@ public class BankingSystemVer05 implements MenuChoice
 		} finally
 		{
 			close();
-			
+
 		}
 
 	}
@@ -230,6 +230,7 @@ public class BankingSystemVer05 implements MenuChoice
 
 	public static void main(String[] args)
 	{
+		PuzzleGame pg = new PuzzleGame();
 		Scanner sc = new Scanner(System.in);
 
 		while (true)
@@ -256,7 +257,6 @@ public class BankingSystemVer05 implements MenuChoice
 				break;
 
 			case PUZZLE_GAME:
-				PuzzleGame pg = new PuzzleGame();
 				pg.gameStart();
 				break;
 

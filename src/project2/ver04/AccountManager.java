@@ -45,7 +45,7 @@ public class AccountManager implements CustomSpecialRate
 {
 	HashSet<Account> accSet = new HashSet<>();
 
-	public void showMenu()
+	public void showMenu() // 메뉴출력메소드
 	{
 		System.out.println("-----Menu-----");
 		System.out.println("1. 계좌개설");
@@ -56,7 +56,7 @@ public class AccountManager implements CustomSpecialRate
 		System.out.print("선택 : ");
 	}
 
-	public void makeAccount()
+	public void makeAccount() // 객체생성메소드
 	{
 		String inputAccountNumber, inputName, inputCreditRating;
 		int inputBalance;
@@ -119,7 +119,7 @@ public class AccountManager implements CustomSpecialRate
 		System.out.println("계좌개설이 완료되었습니다.\n");
 	}
 
-	public void depositMoney()
+	public void depositMoney() // 입금처리메소드
 	{
 		Scanner scanner = new Scanner(System.in);
 		double calBalance = 0;
@@ -183,7 +183,7 @@ public class AccountManager implements CustomSpecialRate
 		System.out.println("입금이 완료되었습니다.\n");
 	}
 
-	public void withdrawMoney()
+	public void withdrawMoney() // 출금처리메소드
 	{
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("***출    금***");
@@ -248,7 +248,7 @@ public class AccountManager implements CustomSpecialRate
 		System.out.println("출금이 완료되었습니다.\n");
 	}
 
-	public void showInfo()
+	public void showInfo() // 계좌정보출력메소드
 	{
 		System.out.println("***계좌정보출력***");
 
@@ -265,13 +265,13 @@ public class AccountManager implements CustomSpecialRate
 		System.out.println("전체 계좌정보 출력이 완료되었습니다.\n");
 	}
 
-	public void exit()
+	public void exit() //프로그램 종료메소드
 	{
 		System.out.println("프로그램을 종료합니다.");
 		System.exit(0);
 	}
 
-	public void saveAccountInfo()
+	public void saveAccountInfo() // 객체파일 저장메소드
 	{
 		try
 		{
@@ -286,7 +286,7 @@ public class AccountManager implements CustomSpecialRate
 		}
 	}
 
-	public void loadAccountInfo()
+	public void loadAccountInfo() // 객체파일 불러오기 메소드
 	{
 		try
 		{
