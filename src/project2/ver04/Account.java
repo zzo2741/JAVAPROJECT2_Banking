@@ -31,19 +31,19 @@ public abstract class Account implements Serializable
 		return result;
 	}
 
-	@Override
-	public boolean equals(Object obj)
-	{
-		Account acc = (Account) obj;
-
-		if (acc.accountNumber.equals(this.accountNumber))
-		{
-			return true;
-		} else
-		{
-			return false;
-		}
-	}
+//	@Override
+//	public boolean equals(Object obj)
+//	{
+//		Account acc = (Account) obj;
+//
+//		if (acc.accountNumber.equals(this.accountNumber))
+//		{
+//			return true;
+//		} else
+//		{
+//			return false;
+//		}
+//	}
 
 	public abstract double getBasicInterest();
 
